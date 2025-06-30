@@ -41,7 +41,7 @@ div {
 }
 
 .right {
-  height: 1000px;
+  height: 1100px;
   width: 45px;
   background-color: #e0eeee;
   float: right;
@@ -63,6 +63,10 @@ li {
 
 .head {
   font-size: 20px;
+}
+
+ul {
+  list-style-type: none;
 }
 
 #name {
