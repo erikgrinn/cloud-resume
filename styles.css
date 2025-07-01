@@ -33,11 +33,11 @@ div {
 }
 
 .left {
-  height: 1000px;
+  height: 1100px;
   width: 45px;
   background-color: #e0eeee;
   float: left;
-  position: fixed;
+  position: inherit;
 }
 
 .right {
