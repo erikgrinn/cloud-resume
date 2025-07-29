@@ -4,6 +4,9 @@ import boto3
 from moto import mock_aws
 from lambda_function import lambda_handler
 
+# https://docs.aws.amazon.com/lambda/latest/dg/python-testing.html
+# https://pypi.org/project/moto/
+
 class TestLambdaHandler(unittest.TestCase):
     
     @mock_aws
@@ -34,6 +37,7 @@ class TestLambdaHandler(unittest.TestCase):
         
         body = json.loads(result['body'])
         self.assertEqual(body['visits'], 6)
+
 
 if __name__ == '__main__':
     unittest.main()

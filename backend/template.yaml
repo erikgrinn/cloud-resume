@@ -1,0 +1,46 @@
+# https://medium.com/@dwight.lindquist/aws-sam-setup-for-lambda-api-gateway-and-dynamodb-542c46f1ff76
+
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  cloud-resume-backend
+
+  SAM Template for cloud resume visit counter
+
+Globals:
+  Function:
+    Timeout: 3
+    MemorySize: 128
+  Api:
+    Cors:
+      AllowMethods: "'GET,POST,OPTIONS'"
+      AllowHeaders: "'content-type'"
+      AllowOrigin: "'*'"
+
+Resources:
+  VisitCounterFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.11
+      Policies: 
+        - DynamoDBCrudPolicy:
+            TableName: 
+              !Ref VisitCounterTable
+      Architectures:
+        - x86_64
+      Events:
+        VisitCounter:
+          Type: Api
+          Properties:
+            Path: /visits
+            Method: get
+            
+  VisitCounterTable: 
+    Type: AWS::Serverless::SimpleTable
+    Properties: 
+      TableName: visitCounter
+      PrimaryKey:
+        Name: id
+        Type: String
