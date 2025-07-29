@@ -1,6 +1,7 @@
 import unittest
 import json
 import boto3
+import os
 from moto import mock_aws
 from lambda_function import lambda_handler
 
@@ -11,6 +12,9 @@ class TestLambdaHandler(unittest.TestCase):
     
     @mock_aws
     def test_lambda_handler_success(self):
+        # Set AWS region for moto
+        os.environ['AWS_DEFAULT_REGION'] = 'us-east-1'
+        
         # Create mock DynamoDB table
         dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
         
