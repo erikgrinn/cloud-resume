@@ -27,8 +27,8 @@ jobs:
         pip install boto3 moto
     
     - name: Run tests
-    #   env:
-    #     AWS_DEFAULT_REGION: us-east-1
+      env:
+        AWS_DEFAULT_REGION: us-east-1
       run: |
         cd backend
         python test_lambda.py
