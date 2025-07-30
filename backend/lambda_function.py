@@ -6,7 +6,7 @@ def lambda_handler(event, context):
     table_name = os.environ.get('TABLE_NAME', 'visitCounter')
     dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
     table = dynamodb.Table(table_name)
-    
+    # testing
     try:
         response = table.update_item(
             Key={'id': 'counter'},
