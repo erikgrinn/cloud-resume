@@ -8,7 +8,6 @@ from lambda_function import lambda_handler
 # https://pypi.org/project/moto/
 
 class TestLambdaHandler(unittest.TestCase):
-    
     @mock_aws
     def test_lambda_handler_success(self):
         
