@@ -23,7 +23,7 @@ Resources:
     Properties:
       CodeUri: ./
       Handler: lambda_function.lambda_handler
-      Runtime: python3.11
+      Runtime: python3.13
       Policies: 
         - DynamoDBCrudPolicy:
             TableName: 
