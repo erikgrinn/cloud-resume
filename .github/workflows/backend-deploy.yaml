@@ -1,3 +1,5 @@
+# https://medium.com/@dwight.lindquist/aws-sam-setup-for-lambda-api-gateway-and-dynamodb-542c46f1ff76
+
 name: Deploy Backend
 
 on:
